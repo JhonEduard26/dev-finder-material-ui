@@ -1,6 +1,6 @@
 import { Container } from '@mui/material'
 import { useState } from 'react'
-import { Card, Loader, Searcher } from './components'
+import { Card, ErrorNotFound, Loader, Searcher } from './components'
 import { useFetch, useForm } from './hooks'
 
 const BASE_URL = 'https://api.github.com/users/'
@@ -18,10 +18,7 @@ export const App = () => {
   }
 
   const { isLoading, data } = useFetch(`${BASE_URL}${userSubmit}`)
-
-  console.log({
-    data
-  })
+  const { message } = !!data && data
 
   return (
     <Container
@@ -41,7 +38,11 @@ export const App = () => {
             onSubmit={onSubmit}
           />)
       }
-      <Card />
+      {
+        message
+          ? <ErrorNotFound />
+          : <Card />
+      }
     </Container>
   )
 }

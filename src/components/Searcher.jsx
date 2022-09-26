@@ -10,10 +10,14 @@ export const Searcher = ({ user, onChange, reset, onSubmit }) => {
       <TextField
         fullWidth
         color="warning"
-        placeholder='octocat'
+        placeholder="octocat"
+        autoComplete="off"
         value={user}
         name="user"
         onChange={onChange}
+        sx={{
+          marginBottom: '24px',
+        }}
         InputProps={{
           startAdornment: (
             <IconButton onClick={() => onSubmit(user)}>
