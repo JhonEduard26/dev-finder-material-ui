@@ -1,4 +1,4 @@
 export * from './Searcher'
-export * from './Card'
+export * from './UserCard'
 export * from './Loader'
 export * from './ErrorNotFound'
