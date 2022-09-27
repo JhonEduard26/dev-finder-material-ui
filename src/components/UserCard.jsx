@@ -2,7 +2,9 @@ import { Avatar, Container, Stack, Typography } from '@mui/material'
 
 export const UserCard = ({ name, bio, avatar }) => {
   return (
-    <Container>
+    <Container sx={{
+      marginBottom: '36px',
+    }}>
       <Stack direction="column" alignItems="center">
         <Avatar src={avatar} alt="github user" sx={{
           width: 120,

@@ -1,6 +1,6 @@
 import { Container } from '@mui/material'
 import { useState } from 'react'
-import { UserCard, ErrorNotFound, Loader, Searcher } from './components'
+import { UserCard, ErrorNotFound, Loader, Searcher, ToggleMenu } from './components'
 import { useFetch, useForm } from './hooks'
 
 const BASE_URL = 'https://api.github.com/users/'
@@ -43,6 +43,7 @@ export const App = () => {
           ? <ErrorNotFound />
           : <UserCard name={login} bio={bio} avatar={avatar_url} />
       }
+      <ToggleMenu />
     </Container>
   )
 }
