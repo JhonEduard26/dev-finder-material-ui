@@ -1,6 +1,6 @@
 import { Container } from '@mui/material'
 import { useState } from 'react'
-import { UserCard, ErrorNotFound, Loader, Searcher, ToggleMenu } from './components'
+import { UserCard, ErrorNotFound, Loader, Searcher, CardGrid } from './components'
 import { useFetch, useForm } from './hooks'
 
 const BASE_URL = 'https://api.github.com/users/'
@@ -18,7 +18,12 @@ export const App = () => {
   }
 
   const { isLoading, data } = useFetch(`${BASE_URL}${userSubmit}`)
-  const { message, login, bio, avatar_url } = !!data && data
+  const {
+    avatar_url,
+    bio,
+    login,
+    message,
+  } = !!data && data
 
   return (
     <Container
@@ -43,7 +48,7 @@ export const App = () => {
           ? <ErrorNotFound />
           : <UserCard name={login} bio={bio} avatar={avatar_url} />
       }
-      <ToggleMenu />
+      <CardGrid {...data} />
     </Container>
   )
 }

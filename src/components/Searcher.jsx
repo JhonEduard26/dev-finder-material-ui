@@ -1,4 +1,4 @@
-import { IconButton, Input, Stack, TextField } from '@mui/material'
+import { IconButton, Stack, TextField } from '@mui/material'
 import ClearIcon from '@mui/icons-material/Clear';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -9,7 +9,7 @@ export const Searcher = ({ user, onChange, reset, onSubmit }) => {
     >
       <TextField
         fullWidth
-        color="warning"
+        color="primary"
         placeholder="octocat"
         autoComplete="off"
         value={user}
